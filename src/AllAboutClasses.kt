@@ -35,10 +35,17 @@ class ChildA : Base()
 
 //public class that is final with private default constructor and public secondary constructor
 class ClassWithPrivateDefaultConstructor private constructor(){
+
     //this is secondary constructor that can be used and is default to public access
     constructor(instanceName: String) : this() {
         println("new Instance of ClassWithPrivateDefaultConstructor with name $instanceName")
     }
+
+    // this init is private because i declared default constructor as private
+    init{
+        println("ClassWithPrivateDefaultConstructor private init called!")
+    }
+
 }
 
 
