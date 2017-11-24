@@ -26,6 +26,16 @@ fun greet(name: String, message: String ="Hi ${name.length}") {
     println("$message $name")
 }
 
+//varargs example: one or more arguments function
+fun averageOf(vararg numbers: Int) : Int {
+
+    var result = 0
+    for( number in numbers){
+        result += number
+    }
+    return result / numbers.size
+}
+
 fun main(args: Array<String>) {
 
     val functionValue = printHello()
@@ -39,5 +49,8 @@ fun main(args: Array<String>) {
     addOnlyPositive()
     greet(name="Rooster")
     greet("Kitty") //this is also valid way to call without using name
+
+    //varargs examples
+    println("Average is : ${averageOf(1,2,3,4,5,6,7,8,9,10)}")
 
 }
