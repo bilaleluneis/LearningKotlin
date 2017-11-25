@@ -49,6 +49,17 @@ fun String.isEmpty() = when(this.trim().length) {
     else -> false
 }
 
+//infix functions - any function that takes single param can be made infix which allow for nicer readable code
+infix fun Int.multiplyBy(number: Int) = this * number
+
+
+
+
+
+
+
+// Main method to try execute examples
+
 fun main(args: Array<String>) {
 
     val functionValue = printHello()
@@ -69,5 +80,9 @@ fun main(args: Array<String>) {
     //extension functions
     println("is '' empty? ${"".isEmpty()}")
     println("is 'Meawer' empty? ${"Meawer".isEmpty()}")
+
+    //infix functions
+    val infixFunCallResult = 2 multiplyBy 4
+    println("2 multiplyBy 4 is $infixFunCallResult")
 
 }
