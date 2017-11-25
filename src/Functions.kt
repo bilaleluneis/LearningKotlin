@@ -36,6 +36,19 @@ fun averageOf(vararg numbers: Int) : Int {
     return result / numbers.size
 }
 
+//extension functions ... a nice way to add features on a type without having to subtype or extend it
+/*fun String.isEmpty() : Boolean {
+
+    if(this.length == 0 || this.trim().length == 0) return true
+    return false
+
+}*/
+//another nice way to write the above extension function
+fun String.isEmpty() = when(this.trim().length) {
+    0 -> true
+    else -> false
+}
+
 fun main(args: Array<String>) {
 
     val functionValue = printHello()
@@ -52,5 +65,9 @@ fun main(args: Array<String>) {
 
     //varargs examples
     println("Average is : ${averageOf(1,2,3,4,5,6,7,8,9,10)}")
+
+    //extension functions
+    println("is '' empty? ${"".isEmpty()}")
+    println("is 'Meawer' empty? ${"Meawer".isEmpty()}")
 
 }
