@@ -48,6 +48,9 @@ class ClassWithPrivateDefaultConstructor private constructor(){
 
 }
 
+//bellow will error out if uncommented , because Response was declared Sealed
+//class Unseal : Response()
+
 
 fun main(args: Array<String>) {
 
@@ -55,5 +58,12 @@ fun main(args: Array<String>) {
     val cantInheritMe = CantInheritMe()
     val childA : Base = ChildA() //childA is constant of type Base assigned to instance of ChildA()
     val privateConstructorObject = ClassWithPrivateDefaultConstructor("duh")
+
+    // example of method that could return object that is of type Success or Failure
+    val response = getResponse()
+    when(response){
+        is Success -> println("Success Response returned ${response.jsonResponse}")
+        is Failure -> println("Failure Response returned ${response.errorCode}")
+    }
 
 }
