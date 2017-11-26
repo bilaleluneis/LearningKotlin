@@ -1,3 +1,5 @@
+import java.util.*
+
 /**
  * @author Bilal El Uneis
  * @since Nov 25, 2017
@@ -27,7 +29,10 @@ class Failure(val errorCode:Int, val errorMessage: String) : Response()
 // this is nice example of returning either Success or Failure Response
 fun getResponse() : Response {
 
-    return Success(jsonResponse = "{value : 200}")
-    //return Failure(errorCode = 500 , errorMessage = "Internal Server Error!")
+    val randomResponse = Random().nextInt(2) + 1
+    return when(randomResponse){
+        1 -> Success(jsonResponse = "{value : 200}")
+        else -> Failure(errorCode = 500 , errorMessage = "Internal Server Error!")
+    }
 
 }

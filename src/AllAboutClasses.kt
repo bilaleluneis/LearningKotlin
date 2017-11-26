@@ -59,7 +59,11 @@ fun main(args: Array<String>) {
     val childA : Base = ChildA() //childA is constant of type Base assigned to instance of ChildA()
     val privateConstructorObject = ClassWithPrivateDefaultConstructor("duh")
 
-    // example of method that could return object that is of type Success or Failure
+    /** example of method that could return object that is of type Success or Failure
+     *  @see Response
+     *  @see Success
+     *  @see Failure
+     */
     val response = getResponse()
     when(response){
         is Success -> println("Success Response returned ${response.jsonResponse}")
