@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
     println("$anotherResultOfLambdaCallFilter")
 
     //example using the executeOperation()
-    TODO(" the bellow didn't seem to work.. will look at it tomorrow")
-    //val addOperationResult = executeOperation(2,3,operation = add)
+    val addOperationResult = executeOperation(2,3, operation = ::add)
+    println("addOperationResult = $addOperationResult")
 
 }
