@@ -1,6 +1,6 @@
 /**
  * @author Bilal El Uneis
- * @since Nov 20, 2017
+ * @since Nov 27, 2017
  * bilaleluneis@gmail.com
  */
 
@@ -38,7 +38,12 @@ fun main(args: Array<String>) {
     println("$anotherResultOfLambdaCallFilter")
 
     //example using the executeOperation()
-    val addOperationResult = executeOperation(2,3, operation = ::add)
+    var addOperationResult = executeOperation(2,3, operation = ::add)
+    println("addOperationResult = $addOperationResult")
+
+    //same as above but with assign to val .. functions are first class objects
+    val addOperation : (Int,Int) -> Int = ::add // could have used type inference , but wanted to be verbose
+    addOperationResult = executeOperation(4,6, addOperation)
     println("addOperationResult = $addOperationResult")
 
 }
