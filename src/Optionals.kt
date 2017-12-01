@@ -84,6 +84,15 @@ fun returnNonNulItemlList(aList: List<String?>) : List<String> {
     return result
 }
 
+/**
+ * This is interesting thought! if functions are first class citizens, can they be Optional too?
+ * so i created a function that takes an Optional function(argument: String) { }
+ */
+
+fun callOptionalFun(param: String, function: ((String) -> Unit)?) {
+    function?.invoke(param)
+}
+
 fun main(args: Array<String>) {
 
     val name: String? = null // change to actual value to see the println() change
@@ -105,5 +114,9 @@ fun main(args: Array<String>) {
     //example using let function to deal with null values
     val nonNullList = returnNonNulItemlList(listOf("Bilal","Kitty",null,"BMW"))
     println("nonNullList contains: $nonNullList")
+
+    //example with optional function
+    callOptionalFun("hello", null)
+    callOptionalFun("hello again", ::println)
 
 }
