@@ -68,6 +68,22 @@ infix fun Person.doesntLiveIn(address:Address?) : Boolean {
 
 }
 
+/**
+ * example using the let function to deal with null items
+ * @see let
+ */
+fun returnNonNulItemlList(aList: List<String?>) : List<String> {
+
+    var result = listOf<String>()
+
+    for(item in aList){
+        item?.let{result = result.plus(it)}
+        //or can be called like this too .. item?.let{result = result.plus(item)}
+    }
+
+    return result
+}
+
 fun main(args: Array<String>) {
 
     val name: String? = null // change to actual value to see the println() change
@@ -85,5 +101,9 @@ fun main(args: Array<String>) {
     }else if(rooster doesntLiveIn kitty.address){
         println("Rooster and Kitty don't live together!")
     }
+
+    //example using let function to deal with null values
+    val nonNullList = returnNonNulItemlList(listOf("Bilal","Kitty",null,"BMW"))
+    println("nonNullList contains: $nonNullList")
 
 }
