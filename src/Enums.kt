@@ -25,14 +25,14 @@ enum class DayOfTheWeek(val dayNumber: Int){
 }
 
 /**
- * In one of the IOS courses by Stanford University, I saw this cool code snippet
+ * In one of the IOS course by Paul Hegarty from Stanford University, I saw this cool code snippet
  * to build a calculator logic where Enum was used to associate operator with operation
  * I want to try and see how to do that with Kotlin Enum.
  */
 enum class SimpleMathOperations(val operator: String, val operation: (Int,Int) -> Int){
 
     ADD("+", {x,y -> x + y}),
-    MINUS("-", {x,y -> x - y})
+    SUBTRACT("-", {x,y -> x - y})
 
 }
 
