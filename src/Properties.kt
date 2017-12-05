@@ -68,6 +68,7 @@ fun main(args: Array<String>) {
     val person = PersonInfo()
     person.firstName = "Bilal"
     println("${person.firstName} ${person.lastName}")
+    println("${person.fullName}")
     //person.fullName = "" // if you uncomment this it will error out!
 
 }
