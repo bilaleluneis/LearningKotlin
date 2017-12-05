@@ -15,7 +15,20 @@ class PersonInfo{
      * of that class that is dedicated to the PersonInfo Instance using it.
      */
     var firstName: String by PersonFirstNameDelegate(this)
-    var lastName: String = ""
+    var lastName: String
+
+    /**
+     * this is a get only property .. I also believe this is
+     * a computed property!
+     */
+    val fullName: String get(){ return "$firstName $lastName"}
+
+    // default initializer .. notice didn't need to init fullName nor firstName!
+    init{
+
+        lastName = ""
+
+    }
 
 }
 
@@ -55,6 +68,7 @@ fun main(args: Array<String>) {
     val person = PersonInfo()
     person.firstName = "Bilal"
     println("${person.firstName} ${person.lastName}")
+    //person.fullName = "" // if you uncomment this it will error out!
 
 }
 
