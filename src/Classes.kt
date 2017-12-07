@@ -36,14 +36,29 @@ class ChildA : Base()
 //public class that is final with private default constructor and public secondary constructor
 class ClassWithPrivateDefaultConstructor private constructor(){
 
+     private var _instanceName: String? =  null
+    /**
+     * bellow is val and can only be initialized once
+     * and can only be initialized inside init{}
+     */
+     private val _privateInstanceName: String
+
+    /**
+     * bellow is property that has public get and private set
+     */
+    var privateSetProperty: Int private set
+
     //this is secondary constructor that can be used and is default to public access
     constructor(instanceName: String) : this() {
+        _instanceName = instanceName
         println("new Instance of ClassWithPrivateDefaultConstructor with name $instanceName")
     }
 
     // this init is private because i declared default constructor as private
     init{
         println("ClassWithPrivateDefaultConstructor private init called!")
+        _privateInstanceName = "only initialized in private Constructor"
+        privateSetProperty = 0
     }
 
 }
