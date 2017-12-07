@@ -18,9 +18,16 @@ enum class DayOfTheWeek(val dayNumber: Int){
 
     //you can add companion object .. i am guessing this is like anonymous class
     companion object{
+        // to call the method bellow you -> DayOfTheWeek.dayFromNumber()
+        // I guess it is treated as class level method instead of instance method
+        // or maybe as static method!
         fun dayFromNumber(number: Int) : DayOfTheWeek = DayOfTheWeek.values().first{ x-> x.dayNumber == number }
     }
 
+    // this is an instance method, that can be called only on an instance of the enum
+    fun nextDay() : DayOfTheWeek {
+       return dayFromNumber(this.dayNumber + 1)
+    }
 
 }
 
@@ -46,6 +53,10 @@ fun main(args: Array<String>) {
 
     val dayOfTheWeek : DayOfTheWeek = DayOfTheWeek.dayFromNumber(3)
     println("dayOfTheWeek = $dayOfTheWeek")
+
+    val today = DayOfTheWeek.MONDAY
+    val tomorrow = today.nextDay()
+    println("Today is $today and Tomorrow is $tomorrow")
 
     //This should be cool :)
     val operator = SimpleMathOperations.ADD.operator
