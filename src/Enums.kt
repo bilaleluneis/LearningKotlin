@@ -8,6 +8,7 @@
 //simple enum declaration in Kotlin
 enum class DayOfTheWeek(val dayNumber: Int){
 
+    INVALID(0),
     MONDAY(1),
     TUESDAY(2),
     WEDNESDAY(3),
@@ -21,7 +22,9 @@ enum class DayOfTheWeek(val dayNumber: Int){
         // to call the method bellow you -> DayOfTheWeek.dayFromNumber()
         // I guess it is treated as class level method instead of instance method
         // or maybe as static method!
-        fun dayFromNumber(number: Int) : DayOfTheWeek = DayOfTheWeek.values().first{ x-> x.dayNumber == number }
+        fun dayFromNumber(number: Int) : DayOfTheWeek =  try {
+            DayOfTheWeek.values().first { x -> x.dayNumber == number }
+        }catch(exception: NoSuchElementException){INVALID}
     }
 
     // this is an instance method, that can be called only on an instance of the enum
@@ -53,6 +56,9 @@ fun main(args: Array<String>) {
 
     val dayOfTheWeek : DayOfTheWeek = DayOfTheWeek.dayFromNumber(3)
     println("dayOfTheWeek = $dayOfTheWeek")
+
+    val invalidDay = DayOfTheWeek.dayFromNumber(10)
+    println("the day is $invalidDay")
 
     val today = DayOfTheWeek.MONDAY
     val tomorrow = today.nextDay()
