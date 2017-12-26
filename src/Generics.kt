@@ -27,8 +27,8 @@ fun main(args: Array<String>) {
      * @see Number
      * @see Double
      */
-    val aDouble = CanBeAssignedToSuperType<Double>()
-    val superTypeNumber: CanBeAssignedToSuperType<Number> = aDouble
+    val superTypeOfDouble: CanBeAssignedToSuperType<Number> = CanBeAssignedToSuperType<Double>()
+    val subTypeOfNumber: CanBeAssignedToSubType<Double> = CanBeAssignedToSubType<Number>()
 
 
 }
