@@ -15,6 +15,17 @@ class PersonInfo{
      * of that class that is dedicated to the PersonInfo Instance using it.
      */
     var firstName: String by PersonFirstNameDelegate(this)
+
+    /**
+     * bellow means that homeAdress will be initialized later, so we don't have to initialize here or in init(){}
+     * it seems that you can only use lateinit with var and not val
+     */
+    lateinit var homeAdress: String private set // made the setter private to force use update(address:){}
+
+    //bellow will get initialized only when accessed for first time.. and will only be initialized once
+    val listOfAddressesLivedIn by lazy{ generateListOfAddresses() }
+
+    //simple property that is initialized in init(){}
     var lastName: String
 
     /**
@@ -29,6 +40,12 @@ class PersonInfo{
         lastName = ""
 
     }
+
+    fun update(address: String){
+        homeAdress = address
+    }
+
+    private fun generateListOfAddresses(): Array<String> = arrayOf("200 live street" , "900 hover dam")
 
 }
 
@@ -67,9 +84,12 @@ fun main(args: Array<String>) {
 
     val person = PersonInfo()
     person.firstName = "Bilal"
+    person.update(address = "100 king street")
     println("${person.firstName} ${person.lastName}")
     println("${person.fullName}")
     //person.fullName = "" // if you uncomment this it will error out!
+    println("${person.homeAdress}")
+    println("${person.listOfAddressesLivedIn}")
 
 }
 
