@@ -1,4 +1,4 @@
-package basics.Classes
+package basics.classes
 
 /**
  * @author Bilal El Uneis
