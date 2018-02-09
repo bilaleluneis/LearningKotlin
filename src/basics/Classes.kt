@@ -83,8 +83,8 @@ fun main(args: Array<String>) {
      */
     val response = getResponse()
     when(response){
-        is Success -> println("basics.Success basics.Response returned ${response.jsonResponse}")
-        is Failure -> println("basics.Failure basics.Response returned ${response.errorCode}")
+        is SuccessResponse -> println("basics.Success basics.Response returned ${response.jsonResponse}")
+        is FailureResponse -> println("basics.Failure basics.Response returned ${response.errorCode}")
     }
 
 }

@@ -13,15 +13,15 @@ You can only extend the class inside this file and it is treated as closed
 from outside this file... I learned about this and the example from a Kotlin
 talk on YouTube by Hadi Hariri
 */
-sealed class Response
+sealed class HttpResponse
 
 // the bellow classes able to extend basics.Response because they are in same file
 // also notice .. you shouldn't be able to extend the bellow classes in this file
 // or the outside because they are not declared open .. so by default they are final !
 
-class Success(val jsonResponse: String) : Response()
+class SuccessResponse(val jsonResponse: String) : HttpResponse()
 
-class Failure(val errorCode:Int, val errorMessage: String) : Response()
+class FailureResponse(val errorCode:Int, val errorMessage: String) : HttpResponse()
 
 
 // uncomment bellow and see the error...
@@ -29,12 +29,12 @@ class Failure(val errorCode:Int, val errorMessage: String) : Response()
 //class TryingToExtendFinalClass : basics.Success()
 
 // this is nice example of returning either basics.Success or basics.Failure basics.Response
-fun getResponse() : Response {
+fun getResponse() : HttpResponse {
 
     val randomResponse = Random().nextInt(2) + 1
     return when(randomResponse){
-        1 -> Success(jsonResponse = "{value : 200}")
-        else -> Failure(errorCode = 500, errorMessage = "Internal Server Error!")
+        1 -> SuccessResponse(jsonResponse = "{value : 200}")
+        else -> FailureResponse(errorCode = 500, errorMessage = "Internal Server Error!")
     }
 
 }

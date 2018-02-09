@@ -1,4 +1,4 @@
-package basics.classes
+package basics
 
 /**
  * @author Bilal El Uneis
@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
     SubClass()
 
     //bellow is valid because Success and Failure are SubType of Response
-    val responseObjectList : Array<Response> = arrayOf(Success(),Failure())
+    val responseObjectList : Array<Response> = arrayOf(Success(), Failure())
 
     for(response in responseObjectList){
         when(response){ // when is more powerful form of if or switch
