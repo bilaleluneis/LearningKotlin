@@ -19,7 +19,8 @@ class ClassWithCompanionObject {
      * similar to Java Static block .. Kotlin doesn't
      * have static. so everything inside a companion
      * object can be thought of as static and will be
-     * initialized only once.
+     * initialized only once. or you can think of it
+     * as class level instead on instance level.
      */
     companion object {
 
@@ -30,6 +31,7 @@ class ClassWithCompanionObject {
         }
     }
 }
+
 
 fun main(args: Array<String>) {
 
