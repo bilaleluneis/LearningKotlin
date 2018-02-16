@@ -19,7 +19,9 @@ enum class DayOfTheWeek(val dayNumber: Int){
     SATURDAY(6),
     SUNDAY(7);
 
-    //you can basics.add companion object .. i am guessing this is like anonymous class
+    /**
+     * @see [ClassWithCompanionObject]
+     */
     companion object{
         // to call the method bellow you -> basics.DayOfTheWeek.dayFromNumber()
         // I guess it is treated as class level method instead of instance method
