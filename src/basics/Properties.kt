@@ -27,8 +27,13 @@ class PersonInfo{
     //bellow will get initialized only when accessed for first time.. and will only be initialized once
     val listOfAddressesLivedIn by lazy{ generateListOfAddresses() }
 
-    //simple property that is initialized in init(){}
-    var lastName: String
+    /**
+     * notice bellow how you don't access lastName in getter directly, instead you access it using field.
+     * also in setting you pass value and you assign to field, which will assign to lastName.
+     */
+    var lastName: String = ""
+        get() = field.capitalize() // to access lastName you need use field, to prevent recursion on property!
+        set(value) { field = value.trim() } // to assign to lastName assign to field
 
     /**
      * this is a get only property .. I also believe this is
