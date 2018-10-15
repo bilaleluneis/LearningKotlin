@@ -15,5 +15,4 @@ fun main(args: Array<String>) {
      *  use / return/ execute the expression on the right instead.
      */
     test?.let{ println("String is $it") } ?: println("Empty")
-
 }
